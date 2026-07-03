@@ -19,17 +19,11 @@ jobs:
       with:
         xcode-version: latest-stable
     
-    - name: Create Xcode project
-      run: |
-        xcodebuild create-project \
-          -project ios-demo.xcodeproj \
-          -scheme ios-demo \
-          -bundle-identifier com.example.ios-demo \
-          -language Swift
+    - name: Install xcodegen
+      run: brew install xcodegen
     
-    - name: Add source files
-      run: |
-        xcodebuild -project ios-demo.xcodeproj -target ios-demo add-file ios-demo/AppDelegate.swift ios-demo/ViewController.swift ios-demo/Info.plist ios-demo/Assets.xcassets
+    - name: Generate Xcode project
+      run: xcodegen generate
     
     - name: Archive app
       run: xcodebuild archive -project ios-demo.xcodeproj -scheme ios-demo -destination 'generic/platform=iOS' -archivePath build/ios-demo.xcarchive CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" PROVISIONING_PROFILE_SPECIFIER="" DEVELOPMENT_TEAM=""

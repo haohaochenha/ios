@@ -1,0 +1,17 @@
+name: ios-demo
+
+options:
+  bundleIdPrefix: com.example
+
+targets:
+  ios-demo:
+    type: application
+    platform: iOS
+    deploymentTarget: "15.0"
+    sources:
+      - ios-demo
+    settings:
+      INFOPLIST_FILE: ios-demo/Info.plist
+      PRODUCT_BUNDLE_IDENTIFIER: com.example.ios-demo
+      CODE_SIGNING_ALLOWED: NO
+      CODE_SIGNING_REQUIRED: NO
