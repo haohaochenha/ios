@@ -1,0 +1,6 @@
+*.xcuserdata
+*.xcworkspace
+DerivedData
+build
+*.ipa
+Payload
