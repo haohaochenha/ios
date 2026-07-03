@@ -11,10 +11,9 @@ let package = Package(
         .executable(name: "ios-demo", targets: ["ios-demo"])
     ],
     targets: [
-        .executableTarget(
+        .target(
             name: "ios-demo",
             path: "Sources/ios-demo",
-            infoPlist: .file("Info.plist"),
             resources: [
                 .process("Resources/Assets.xcassets")
             ]
