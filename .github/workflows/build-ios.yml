@@ -19,10 +19,12 @@ jobs:
       with:
         xcode-version: latest-stable
     
+    - name: Resolve package dependencies
+      run: xcodebuild -resolvePackageDependencies -scheme ios-demo
+    
     - name: Archive app
       run: |
         xcodebuild archive \
-          -project ios-demo.xcodeproj \
           -scheme ios-demo \
           -destination 'generic/platform=iOS' \
           -archivePath build/ios-demo.xcarchive \
