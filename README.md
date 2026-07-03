@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+
 # iOS Demo App
 
 一个用于演示 Windows + VS Code + GitHub Actions 自动编译 iOS 应用的示例项目。
@@ -105,3 +107,11 @@ git push -u origin main
 - `ViewController.swift` - 修改页面 UI 和逻辑
 - `Info.plist` - 修改应用配置（名称、版本等）
 - `project.pbxproj` - 修改项目构建配置
+  \=======
+
+# ios
+
+一个新的ios应用
+
+> > > > > > > 944c99375340f9252aa82fd84106e276ab28da97
+

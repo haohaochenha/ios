@@ -19,6 +19,9 @@ jobs:
       with:
         xcode-version: latest-stable
     
+    - name: List available schemes
+      run: xcodebuild -list -project ios-demo.xcodeproj
+    
     - name: Build app
       run: |
         xcodebuild -project ios-demo.xcodeproj \
@@ -26,12 +29,22 @@ jobs:
           -destination 'generic/platform=iOS' \
           -configuration Release \
           -derivedDataPath build/DerivedData \
-          build CODE_SIGNING_ALLOWED=NO
+          build \
+          CODE_SIGNING_ALLOWED=NO \
+          CODE_SIGNING_REQUIRED=NO \
+          CODE_SIGN_IDENTITY="" \
+          PROVISIONING_PROFILE_SPECIFIER="" \
+          DEVELOPMENT_TEAM=""
       
     - name: Create IPA
       run: |
         mkdir -p Payload
         APP_PATH=$(find build/DerivedData -name 'ios-demo.app' -type d)
+        echo "Found app at: $APP_PATH"
+        if [ -z "$APP_PATH" ]; then
+          echo "ERROR: ios-demo.app not found!"
+          exit 1
+        fi
         cp -R "$APP_PATH" Payload/
         zip -r ios-demo.ipa Payload
       
