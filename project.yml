@@ -9,9 +9,15 @@ targets:
     platform: iOS
     deploymentTarget: "15.0"
     sources:
-      - ios-demo
+      - path: ios-demo
+        excludes:
+          - "*.xcassets"
+    resources:
+      - ios-demo/Assets.xcassets
     settings:
       INFOPLIST_FILE: ios-demo/Info.plist
       PRODUCT_BUNDLE_IDENTIFIER: com.example.ios-demo
       CODE_SIGNING_ALLOWED: NO
       CODE_SIGNING_REQUIRED: NO
+      SWIFT_VERSION: "5.0"
+      LD_RUNPATH_SEARCH_PATHS: "$(inherited) @executable_path/Frameworks"
