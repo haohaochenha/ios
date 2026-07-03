@@ -19,8 +19,11 @@ jobs:
       with:
         xcode-version: latest-stable
     
+    - name: Generate Xcode project
+      run: swift package generate-xcodeproj --output ios-demo.xcodeproj
+    
     - name: Archive app
-      run: xcodebuild archive -scheme ios-demo -destination 'generic/platform=iOS' -archivePath build/ios-demo.xcarchive CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" PROVISIONING_PROFILE_SPECIFIER="" DEVELOPMENT_TEAM=""
+      run: xcodebuild archive -project ios-demo.xcodeproj -scheme ios-demo -destination 'generic/platform=iOS' -archivePath build/ios-demo.xcarchive CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" PROVISIONING_PROFILE_SPECIFIER="" DEVELOPMENT_TEAM=""
     
     - name: Export IPA
       run: |
