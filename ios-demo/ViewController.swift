@@ -87,7 +87,7 @@ class ViewController: UIViewController {
             tapCountLabel.text = "点击次数：\(newCount)"
             
             let alert = UIAlertController(
-                title: "🎉 成功!",
+                title: "成功!",
                 message: "你已点击 \(newCount) 次",
                 preferredStyle: .alert
             )
